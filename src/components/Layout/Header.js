@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
+import CartContext from "../../store/cart-context";
 
 const Header = (props) => {
+  const cartCtx = useContext(CartContext);
+  const numberOfItems = cartCtx.items.reduce((num, currItem) => {
+    return num + currItem.quantity;
+  }, 0);
   return (
     <Navbar expand="lg" bg="dark" variant="dark">
       <Container>
@@ -16,7 +21,10 @@ const Header = (props) => {
               onClick={props.onOpenCart}
               variant="outline-light"
               type="button">
-              Cart <Badge bg="danger">0</Badge>
+              Cart{" "}
+              {numberOfItems !== 0 && (
+                <Badge bg="danger">{numberOfItems}</Badge>
+              )}
             </Button>
           </Nav>
         </Navbar.Collapse>

@@ -39,6 +39,7 @@ const ProductList = (props) => {
       {productsArr.map((product) => (
         <ProductItem
           key={product.id}
+          id={product.id}
           title={product.title}
           price={product.price}
           imageUrl={product.imageUrl}
