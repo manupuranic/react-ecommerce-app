@@ -1,23 +1,26 @@
-import { useState } from "react";
-import "./App.css";
-
 import CartProvider from "./store/CartProvider";
-import Cart from "./components/Cart/Cart";
-import Header from "./components/Layout/Header";
-import Product from "./components/Products/Product";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Root from "./pages/Root";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Store from "./pages/Store";
 
 function App() {
-  const [showCart, setShowCart] = useState(false);
-
-  const toggleCart = () => {
-    setShowCart((prevState) => !prevState);
-  };
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "/store", element: <Store /> },
+      ],
+    },
+  ]);
 
   return (
     <CartProvider>
-      <Cart onCloseCart={toggleCart} show={showCart} />
-      <Header onOpenCart={toggleCart} />
-      <Product />
+      <RouterProvider router={router} />
     </CartProvider>
   );
 }

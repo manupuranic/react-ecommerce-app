@@ -41,11 +41,7 @@ const Cart = (props) => {
   );
 
   return (
-    <Offcanvas
-      show={props.show}
-      placement="end"
-      scroll={true}
-      onHide={props.onCloseCart}>
+    <Offcanvas show={props.show} placement="end" onHide={props.onCloseCart}>
       <Offcanvas.Header closeButton>
         <Offcanvas.Title className="m-auto">Your Cart</Offcanvas.Title>
       </Offcanvas.Header>

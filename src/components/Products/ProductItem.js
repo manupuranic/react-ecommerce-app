@@ -7,12 +7,15 @@ const ProductItem = (props) => {
   const cartCtx = useContext(CartContext);
 
   const onAddToCart = () => {
-    cartCtx.addItem({
-      id: props.id,
-      title: props.title,
-      imageUrl: props.imageUrl,
-      price: props.price,
-    });
+    cartCtx.addItem(
+      {
+        id: props.id,
+        title: props.title,
+        imageUrl: props.imageUrl,
+        price: props.price,
+      },
+      1
+    );
   };
 
   return (
