@@ -1,0 +1,10 @@
+.cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 992px) {
+  .cardBody {
+    flex-direction: column;
+  }
+}

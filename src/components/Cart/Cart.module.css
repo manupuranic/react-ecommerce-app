@@ -1,0 +1,29 @@
+.total {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: start;
+}
+
+.label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.price {
+  margin-left: 5px;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.order {
+  margin-left: 7rem;
+  width: 10rem;
+  position: fixed;
+  bottom: 10px;
+}
+
+@media (max-width: 992px) {
+  .order {
+    width: 90%;
+  }
+}

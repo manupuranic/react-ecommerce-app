@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Navbar expand="lg" bg="dark" variant="dark">
       <Container>
@@ -12,7 +12,10 @@ const Header = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/">Store</Nav.Link>
             <Nav.Link href="/">About</Nav.Link>
-            <Button variant="outline-light" type="button">
+            <Button
+              onClick={props.onOpenCart}
+              variant="outline-light"
+              type="button">
               Cart <Badge bg="danger">0</Badge>
             </Button>
           </Nav>
