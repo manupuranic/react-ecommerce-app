@@ -12,8 +12,8 @@ const Root = () => {
   return (
     <>
       <Header onOpenCart={toggleCart} />
+      <Cart onCloseCart={toggleCart} show={showCart} />
       <main>
-        <Cart onCloseCart={toggleCart} show={showCart} />
         <Outlet />
       </main>
     </>

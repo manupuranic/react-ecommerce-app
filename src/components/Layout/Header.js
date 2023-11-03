@@ -2,13 +2,16 @@ import React, { useContext } from "react";
 import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import CartContext from "../../store/cart-context";
-import classes from "./Header.module.css";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
   const numberOfItems = cartCtx.items.reduce((num, currItem) => {
     return num + currItem.quantity;
   }, 0);
+  const defaultClass =
+    "link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover m-2";
+  const activeClass =
+    "link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-0-hover m-2";
 
   return (
     <header>
@@ -21,27 +24,21 @@ const Header = (props) => {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  isActive
-                    ? classes.navLink + " " + classes.active
-                    : classes.navLink
+                  isActive ? activeClass : defaultClass
                 }>
                 Home
               </NavLink>
               <NavLink
                 to="/store"
                 className={({ isActive }) =>
-                  isActive
-                    ? classes.navLink + " " + classes.active
-                    : classes.navLink
+                  isActive ? activeClass : defaultClass
                 }>
                 Store
               </NavLink>
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  isActive
-                    ? classes.navLink + " " + classes.active
-                    : classes.navLink
+                  isActive ? activeClass : defaultClass
                 }>
                 About
               </NavLink>

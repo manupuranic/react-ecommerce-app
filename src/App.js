@@ -1,19 +1,21 @@
 import CartProvider from "./store/CartProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Root from "./pages/Root";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Store from "./pages/Store";
+import RootLayout from "./pages/Root";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import StorePage from "./pages/Store";
+import ErrorPage from "./pages/Error";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root />,
+      element: <RootLayout />,
+      errorElement: <ErrorPage />,
       children: [
-        { path: "/", element: <Home /> },
-        { path: "/about", element: <About /> },
-        { path: "/store", element: <Store /> },
+        { path: "/", element: <HomePage /> },
+        { path: "/about", element: <AboutPage /> },
+        { path: "/store", element: <StorePage /> },
       ],
     },
   ]);

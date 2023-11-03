@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -30,6 +31,13 @@ const About = () => {
         qui ex Lorem. Labore ut aliqua reprehenderit eiusmod incididunt esse
         est.
       </p>
+      <div className="m-auto" style={{ width: "90%" }}>
+        <Link to="/store">
+          <Button variant="dark" className="text-center w-100 mb-2">
+            Go to Store
+          </Button>
+        </Link>
+      </div>
     </Container>
   );
 };
