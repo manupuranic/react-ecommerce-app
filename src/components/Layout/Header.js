@@ -42,6 +42,13 @@ const Header = (props) => {
                 }>
                 About
               </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? activeClass : defaultClass
+                }>
+                Contact
+              </NavLink>
               <Button
                 onClick={props.onOpenCart}
                 variant="outline-light"

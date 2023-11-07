@@ -31,9 +31,9 @@ const About = () => {
         qui ex Lorem. Labore ut aliqua reprehenderit eiusmod incididunt esse
         est.
       </p>
-      <div className="m-auto" style={{ width: "90%" }}>
+      <div className="m-auto text-center">
         <Link to="/store">
-          <Button variant="dark" className="text-center w-100 mb-2">
+          <Button variant="dark" className="text-center mb-2">
             Go to Store
           </Button>
         </Link>

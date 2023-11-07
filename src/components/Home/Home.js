@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import classes from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const tourList = [
@@ -37,7 +38,7 @@ const Home = () => {
   ];
 
   const tourContent = (
-    <ul className="list-group w-75 m-auto">
+    <ul className="list-group w-100 m-auto">
       {tourList.map((tour) => (
         <li className="list-group-item">
           <div className={classes.list}>
@@ -56,8 +57,10 @@ const Home = () => {
   return (
     <>
       <Container className="text-center bg-body-secondary p-5" fluid>
-        <h1 className="display-1">The Generics</h1>
-        <Button variant="outline-info mt-5">Get our Latest Album</Button>
+        <h1 className="display-1">The Generic Store</h1>
+        <Link to="/store">
+          <Button variant="outline-info mt-5">Explore Products</Button>
+        </Link>
       </Container>
       <Container className="text-center mt-5 mb-5">
         <h2 className="text-black-50">Tours</h2>
@@ -65,7 +68,9 @@ const Home = () => {
       </Container>
       <footer>
         <Container fluid className="bg-info p-4">
-          <h2 className="text-light ms-5">The Generics</h2>
+          <h2 className="text-light ms-2">
+            Ecommerce App <sup>©</sup>
+          </h2>
         </Container>
       </footer>
     </>

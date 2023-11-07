@@ -5,6 +5,7 @@ import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
 import StorePage from "./pages/Store";
 import ErrorPage from "./pages/Error";
+import ContactPage from "./pages/Contact";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +17,7 @@ function App() {
         { path: "/", element: <HomePage /> },
         { path: "/about", element: <AboutPage /> },
         { path: "/store", element: <StorePage /> },
+        { path: "/contact", element: <ContactPage /> },
       ],
     },
   ]);
