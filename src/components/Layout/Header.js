@@ -29,11 +29,11 @@ const Header = (props) => {
                 Home
               </NavLink>
               <NavLink
-                to="/store"
+                to="/products"
                 className={({ isActive }) =>
                   isActive ? activeClass : defaultClass
                 }>
-                Store
+                Products
               </NavLink>
               <NavLink
                 to="/about"

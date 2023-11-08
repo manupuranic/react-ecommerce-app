@@ -16,11 +16,14 @@ const Contact = () => {
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
-    await fetch("https://FIREBASE_URL/contacts.json", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: { "Content-type": "application/json" },
-    });
+    await fetch(
+      "https://react-ecommerce-ac0d7-default-rtdb.asia-southeast1.firebasedatabase.app/contacts.json",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-type": "application/json" },
+      }
+    );
     alert("Contact saved, One of our agents will come in contact with you.");
     setFormData({
       name: "",

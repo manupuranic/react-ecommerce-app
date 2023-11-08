@@ -6,6 +6,8 @@ import AboutPage from "./pages/About";
 import StorePage from "./pages/Store";
 import ErrorPage from "./pages/Error";
 import ContactPage from "./pages/Contact";
+import ProductDetailPage from "./pages/ProductDetail";
+// import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,7 +18,8 @@ function App() {
       children: [
         { path: "/", element: <HomePage /> },
         { path: "/about", element: <AboutPage /> },
-        { path: "/store", element: <StorePage /> },
+        { path: "/products", element: <StorePage /> },
+        { path: "/products/:productId", element: <ProductDetailPage /> },
         { path: "/contact", element: <ContactPage /> },
       ],
     },
@@ -25,6 +28,27 @@ function App() {
   return (
     <CartProvider>
       <RouterProvider router={router} />
+      {/* <RootLayout />
+      <Switch>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+        <Route exact path="/products">
+          <StorePage />
+        </Route>
+        <Route path="/products/:productId">
+          <ProductDetailPage />
+        </Route>
+        <Route path="/contact">
+          <ContactPage />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="*">
+          <ErrorPage />
+        </Route>
+      </Switch> */}
     </CartProvider>
   );
 }

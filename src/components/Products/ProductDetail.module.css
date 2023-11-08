@@ -1,0 +1,56 @@
+.mainDisplay {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.details {
+  width: 40%;
+}
+
+.price {
+  font-size: 2rem;
+}
+
+.prodImg {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.sideImg {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.smallImg:hover {
+  border: 3px solid black;
+}
+
+.smallImg {
+  width: 80px;
+  height: 80px;
+}
+
+.mainImg {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.mainImg img {
+  width: 100%;
+  height: fit-content;
+}
+
+.reviewList {
+  list-style: none;
+  border-bottom: 1px solid #808080;
+  margin-bottom: 2rem;
+}
+
+.reviews {
+  width: 60%;
+}
