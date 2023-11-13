@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Badge, Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import CartContext from "../../store/cart-context";
+import AuthContext from "../../store/auth-context";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
   const numberOfItems = cartCtx.items.reduce((num, currItem) => {
     return num + currItem.quantity;
   }, 0);
@@ -49,6 +51,18 @@ const Header = (props) => {
                 }>
                 Contact
               </NavLink>
+              {authCtx.isLoggedIn && (
+                <NavLink
+                  to="/auth"
+                  className={({ isActive }) =>
+                    isActive ? activeClass : defaultClass
+                  }>
+                  Login
+                </NavLink>
+              )}
+              {!authCtx.isLoggedIn && (
+                <Button variant="outline-dark">Logout</Button>
+              )}
               <Button
                 onClick={props.onOpenCart}
                 variant="outline-light"

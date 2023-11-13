@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Cart from "../components/Cart/Cart";
 import Header from "../components/Layout/Header";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 
-const Root = () => {
+const Root = (props) => {
   const [showCart, setShowCart] = useState(false);
 
   const toggleCart = () => {
@@ -13,9 +13,7 @@ const Root = () => {
     <>
       <Header onOpenCart={toggleCart} />
       <Cart onCloseCart={toggleCart} show={showCart} />
-      <main>
-        <Outlet />
-      </main>
+      <main>{props.children}</main>
     </>
   );
 };

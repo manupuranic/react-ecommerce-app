@@ -54,3 +54,25 @@
 .reviews {
   width: 60%;
 }
+
+@media (max-width: 992px) {
+  .mainDisplay {
+    flex-direction: column;
+  }
+  .details {
+    width: 100%;
+  }
+  .prodImg {
+    width: 100%;
+  }
+  .reviews {
+    width: 100%;
+  }
+  .sideImg {
+    margin-bottom: 2rem;
+  }
+  .mainImg {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}
