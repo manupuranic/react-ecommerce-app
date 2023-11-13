@@ -21,7 +21,8 @@ const CartItem = (props) => {
         imageUrl: props.imageUrl,
         price: props.price,
       },
-      +qty
+      +qty,
+      false
     );
   };
 

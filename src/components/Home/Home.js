@@ -58,7 +58,7 @@ const Home = () => {
     <>
       <Container className="text-center bg-body-secondary p-5" fluid>
         <h1 className="display-1">The Generic Store</h1>
-        <Link to="/store">
+        <Link to="/products">
           <Button variant="outline-info mt-5">Explore Products</Button>
         </Link>
       </Container>

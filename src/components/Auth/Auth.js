@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+import CartContext from "../../store/cart-context";
 
-const FIREBASE_API_KEY = "API_KEY";
+const FIREBASE_API_KEY = "AIzaSyAoIloG6P8Z8aXxnMt_x1ps_sJ9QSJ2FAs";
 
 const Auth = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Auth = () => {
   });
   const [isLogin, setIsLogin] = useState(true);
   const authCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
 
   const toggleLogin = () => {
     setIsLogin((prevState) => !prevState);
@@ -45,7 +47,8 @@ const Auth = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, formData.email);
+        cartCtx.fetchCart();
         navigate("/products", { replace: true });
         setFormData({
           email: "",
@@ -63,7 +66,7 @@ const Auth = () => {
     <React.Fragment>
       <Container className="mt-4 w-50">
         <h1 className="text-center">{isLogin ? "Login" : "Sign Up"}</h1>
-        <Card>
+        <Card className="shadow">
           <Card.Body>
             <Form onSubmit={onFormSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">

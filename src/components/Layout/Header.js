@@ -18,6 +18,7 @@ const Header = (props) => {
 
   const logoutHandler = () => {
     authCtx.logout();
+    cartCtx.fetchCart();
     navigate("/auth", { replace: true });
   };
   return (
@@ -79,7 +80,6 @@ const Header = (props) => {
                   <Badge bg="danger">{numberOfItems}</Badge>
                 )}
               </Button>
-              S
             </Nav>
           </Navbar.Collapse>
         </Container>

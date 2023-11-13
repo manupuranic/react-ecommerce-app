@@ -33,9 +33,9 @@ const Contact = () => {
   };
 
   return (
-    <Container className="mt-3">
+    <Container className="mt-3 w-50">
       <h1 className="text-center mb-4">Contact Us</h1>
-      <Card>
+      <Card className="shadow">
         <Card.Body>
           <Form onSubmit={onFormSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">

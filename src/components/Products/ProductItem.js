@@ -7,16 +7,14 @@ import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const onAddToCart = () => {
-    cartCtx.addItem(
-      {
-        id: props.id,
-        title: props.title,
-        imageUrl: props.imageUrl,
-        price: props.price,
-      },
-      1
-    );
+  const onAddToCart = async () => {
+    const item = {
+      id: props.id,
+      title: props.title,
+      imageUrl: props.imageUrl,
+      price: props.price,
+    };
+    cartCtx.addItem(item, 1, true);
   };
 
   return (

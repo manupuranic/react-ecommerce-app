@@ -12,15 +12,17 @@ export const AuthProvider = (props) => {
   const [token, setToken] = useState(initialToken);
   const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
-  const login = (token) => {
+  const login = (token, email) => {
     localStorage.setItem("token", token);
     setToken(token);
+    localStorage.setItem("mail", email);
     setIsLoggedIn(true);
   };
 
   const logout = () => {
     setToken(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("mail");
     setIsLoggedIn(false);
   };
 
