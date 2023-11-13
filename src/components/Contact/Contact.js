@@ -17,7 +17,7 @@ const Contact = () => {
   const onFormSubmit = async (e) => {
     e.preventDefault();
     await fetch(
-      "https://react-ecommerce-ac0d7-default-rtdb.asia-southeast1.firebasedatabase.app/contacts.json",
+      "https://react-ecommerce-7f8a4-default-rtdb.asia-southeast1.firebasedatabase.app/contacts.json",
       {
         method: "POST",
         body: JSON.stringify(formData),
@@ -58,7 +58,7 @@ const Contact = () => {
               <Form.Label>Phone</Form.Label>
               <Form.Control
                 type="Number"
-                placeholder="Full Name"
+                placeholder="Phone"
                 name="phone"
                 value={formData.phone}
                 onChange={onInputChange}

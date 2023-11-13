@@ -3,6 +3,8 @@ import { Container, Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 
+const FIREBASE_API_KEY = "API_KEY";
+
 const Auth = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -27,11 +29,9 @@ const Auth = () => {
     e.preventDefault();
     let url;
     if (isLogin) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDNeRjnLKXgTAFg63sWOj_5hYpXorfp-cc";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
     } else {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDNeRjnLKXgTAFg63sWOj_5hYpXorfp-cc";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FIREBASE_API_KEY}`;
     }
     try {
       const response = await fetch(url, {

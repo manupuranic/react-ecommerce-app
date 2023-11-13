@@ -1,14 +1,7 @@
 import CartProvider from "./store/CartProvider";
-import AuthContext, { AuthProvider } from "./store/auth-context";
+import AuthContext from "./store/auth-context";
 
-import {
-  RouterProvider,
-  createBrowserRouter,
-  Routes,
-  Route,
-  redirect,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
