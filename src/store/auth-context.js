@@ -10,17 +10,18 @@ const AuthContext = createContext({
 export const AuthProvider = (props) => {
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
-
-  const isLoggedIn = !!token;
+  const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
   const login = (token) => {
     localStorage.setItem("token", token);
     setToken(token);
+    setIsLoggedIn(true);
   };
 
   const logout = () => {
     setToken(null);
     localStorage.removeItem("token");
+    setIsLoggedIn(false);
   };
 
   const authCtx = {

@@ -28,10 +28,10 @@ const Auth = () => {
     let url;
     if (isLogin) {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDNeRjnLKXgTAFg63sWOj_5hYpXorfp-cc";
     } else {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDNeRjnLKXgTAFg63sWOj_5hYpXorfp-cc";
     }
     try {
       const response = await fetch(url, {
