@@ -1,34 +1,26 @@
-import CartProvider from "./store/CartProvider";
-import AuthContext from "./store/auth-context";
+import { lazy, useContext, Suspense } from "react";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
-import AboutPage from "./pages/About";
-import StorePage from "./pages/Store";
-import ErrorPage from "./pages/Error";
-import ContactPage from "./pages/Contact";
-import ProductDetailPage from "./pages/ProductDetail";
-import AuthPage from "./pages/Auth";
-import { useContext } from "react";
-// import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+// import AboutPage from "./pages/About";
+// import StorePage from "./pages/Store";
+// import ErrorPage from "./pages/Error";
+// import ContactPage from "./pages/Contact";
+// import ProductDetailPage from "./pages/ProductDetail";
+// import AuthPage from "./pages/Auth";
+
+import AuthContext from "./store/auth-context";
+import CartProvider from "./store/CartProvider";
+
+const AboutPage = lazy(() => import("./pages/About"));
+const StorePage = lazy(() => import("./pages/Store"));
+const ErrorPage = lazy(() => import("./pages/Error"));
+const ContactPage = lazy(() => import("./pages/Contact"));
+const ProductDetailPage = lazy(() => import("./pages/ProductDetail"));
+const AuthPage = lazy(() => import("./pages/Auth"));
 
 function App() {
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <RootLayout />,
-  //     errorElement: <ErrorPage />,
-  //     children: [
-  //       { path: "/", element: <HomePage /> },
-  //       { path: "/about", element: <AboutPage /> },
-  //       { path: "/products", element: <StorePage /> },
-  //       { path: "/products/:productId", element: <ProductDetailPage /> },
-  //       { path: "/contact", element: <ContactPage /> },
-  //     ],
-  //   },
-  // ]);
-
   const authCtx = useContext(AuthContext);
 
   return (
@@ -36,28 +28,64 @@ function App() {
       {/* <RouterProvider router={router} /> */}
       <RootLayout>
         <Routes>
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/auth"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <AuthPage />
+              </Suspense>
+            }
+          />
           <Route
             exact
             path="/products"
             element={
-              authCtx.isLoggedIn ? <StorePage /> : <Navigate to="/auth" />
+              authCtx.isLoggedIn ? (
+                <Suspense fallback={<p>Loading...</p>}>
+                  <StorePage />
+                </Suspense>
+              ) : (
+                <Navigate to="/auth" />
+              )
             }
           />
           <Route
             path="/products/:productId"
             element={
               authCtx.isLoggedIn ? (
-                <ProductDetailPage />
+                <Suspense fallback={<p>Loading...</p>}>
+                  <ProductDetailPage />
+                </Suspense>
               ) : (
                 <Navigate to="/auth" />
               )
             }
           />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
           <Route exact path="/" element={<HomePage />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <ErrorPage />
+              </Suspense>
+            }
+          />
         </Routes>
       </RootLayout>
     </CartProvider>

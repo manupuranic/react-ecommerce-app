@@ -40,6 +40,11 @@ const Cart = (props) => {
     </div>
   );
 
+  const onOrderHandler = () => {
+    cartCtx.emptyCart();
+    alert("Order Successfull!");
+  };
+
   return (
     <Offcanvas show={props.show} placement="end" onHide={props.onCloseCart}>
       <Offcanvas.Header closeButton>
@@ -49,7 +54,11 @@ const Cart = (props) => {
         {cartContent}
         {cartCtx.items.length !== 0 && totalContent}
         <div className={classes.order}>
-          <Button variant="dark" className="ps-5 pe-5" type="button">
+          <Button
+            variant="dark"
+            className="ps-5 pe-5"
+            type="button"
+            onClick={onOrderHandler}>
             Order
           </Button>
         </div>

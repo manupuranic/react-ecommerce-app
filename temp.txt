@@ -1,0 +1,17 @@
+// import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+
+
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <RootLayout />,
+  //     errorElement: <ErrorPage />,
+  //     children: [
+  //       { path: "/", element: <HomePage /> },
+  //       { path: "/about", element: <AboutPage /> },
+  //       { path: "/products", element: <StorePage /> },
+  //       { path: "/products/:productId", element: <ProductDetailPage /> },
+  //       { path: "/contact", element: <ContactPage /> },
+  //     ],
+  //   },
+  // ]);

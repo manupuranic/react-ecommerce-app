@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import CartContext from "../../store/cart-context";
 
-const FIREBASE_API_KEY = "AIzaSyAoIloG6P8Z8aXxnMt_x1ps_sJ9QSJ2FAs";
+const FIREBASE_API_KEY = "[API_KEY]";
 
 const Auth = () => {
   const [formData, setFormData] = useState({

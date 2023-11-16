@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import CartContext from "./cart-context";
-import { addCart, getCart, removeItem } from "../utils/cart";
+import { addCart, getCart, removeItem, clearCart } from "../utils/cart";
 
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);
@@ -42,11 +42,17 @@ const CartProvider = (props) => {
     fetchCart();
   };
 
+  const emptyCart = async () => {
+    await clearCart();
+    setItems([]);
+  };
+
   const cartCtx = {
     items: items,
     addItem: addToCart,
     removeItem: removeFromCart,
     fetchCart: fetchCart,
+    emptyCart: emptyCart,
   };
 
   return (

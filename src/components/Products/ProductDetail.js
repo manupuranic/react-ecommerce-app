@@ -1,33 +1,60 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import CartContext from "../../store/cart-context";
 
 import classes from "./ProductDetail.module.css";
 
+const productsArr = [
+  {
+    id: "01",
+    title: "Colors",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  },
+  {
+    id: "02",
+    title: "Black and white Colors",
+    price: 50,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+  },
+  {
+    id: "03",
+    title: "Yellow and Black Colors",
+    price: 70,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+  },
+  {
+    id: "04",
+    title: "Blue Color",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+  },
+];
+
 const ProductDetail = () => {
   const params = useParams();
-  const [mainImage, setMainImage] = useState(1);
-
-  const imgs = {
-    1: "/1.jpg",
-    2: "/2.jpg",
-    3: "/3.jpg",
-    4: "/4.jpg",
-  };
-  console.log(params);
+  const [product] = productsArr.filter((item) => item.id === params.productId);
+  const [mainImage, setMainImage] = useState(+product.id - 1);
+  const cartCtx = useContext(CartContext);
 
   const onImageChange = (e) => {
     setMainImage(+e.target.id);
   };
 
-  const sideImgContent = Object.values(imgs).map((image, index) => (
+  const sideImgContent = productsArr.map((item, index) => (
     <Image
-      src={image}
+      key={item.id}
+      src={item.imageUrl}
       className={classes.smallImg}
-      id={index + 1}
-      onClick={onImageChange}
+      id={index}
+      onMouseOver={onImageChange}
     />
   ));
+
+  const addToCartHandler = () => {
+    cartCtx.addItem(product, 1, true);
+  };
 
   return (
     <Container>
@@ -35,20 +62,20 @@ const ProductDetail = () => {
         <div className={classes.prodImg}>
           <div className={classes.sideImg}>{sideImgContent}</div>
           <div className={classes.mainImg}>
-            <Image src={`${imgs[mainImage]}`} alt="main" />
+            <Image src={`${productsArr[mainImage].imageUrl}`} alt="main" />
           </div>
         </div>
         <div className={classes.details}>
-          <h1 className="display-3">Colors</h1>
+          <h1 className="display-3">{product.title}</h1>
           <div>
-            <span className={classes.price}>₹80/-</span>
+            <span className={classes.price}>₹{product.price}/-</span>
           </div>
           <p>
             Pariatur aute deserunt ad cillum qui cupidatat. Ullamco ea
             reprehenderit Lorem laboris duis qui proident. Ad cupidatat
             cupidatat commodo est amet fugiat nostrud duis non id.
           </p>
-          <Button variant="dark" type="button">
+          <Button variant="dark" type="button" onClick={addToCartHandler}>
             Add to Cart
           </Button>
         </div>
